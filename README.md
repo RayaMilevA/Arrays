@@ -54,3 +54,55 @@ int main()
 }
 */
 ```
+
+### Task - Reverse
+Въведете масив от n елемента, отпечатайте елементите му наобратно!
+```
+#include <iostream>
+#include <cmath>
+using namespace std;
+/**/
+
+void reverse(int arr[], int start, int end) {
+    while (start < end)
+    {
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+
+        start++;
+        end--;
+    }
+}
+
+void print(int arr[], int size) {
+    for (size_t i = 0; i < size; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+int main()
+{
+    const int n = 5;
+    int arr[n];
+
+    for (size_t i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    reverse(arr, 0, n - 1);
+    print(arr, n);
+    
+    return 0;
+}
+```
+
+### Task - 
+
+```
+
+```
+
