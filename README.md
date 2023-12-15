@@ -36,4 +36,21 @@ int main()
     cout << average(arr, SIZE);
 
 }
+
+/*
+
+Getting array from console
+
+int main()
+{
+    const int i = 3;
+    double arr[i];
+    for (int i = 0; i < 3; i++)
+        cin >> arr[i];
+
+    print(arr, i);
+    cout << average(arr, i);
+
+}
+*/
 ```
