@@ -100,9 +100,104 @@ int main()
 }
 ```
 
-### Task - 
-
+### Task - Min, Max, Second Max, Second Min
+Въведете масив от n елемента. Да се изведат в конзолата най - големия срещан елемент в масива и най - малкия. Да се изведат също втория по големина елемент и втория най - малък елемент.
 ```
+#include <iostream>
+#include <cmath>
+using namespace std;
+/**/
 
+int findMinValue(int arr[], size_t len) {
+    int min1 = arr[0];
+    if (len < 1)
+    {
+        return -1;
+    }
+    for (size_t i = 1; i < len; i++)
+    {
+        if (arr[i] < min1) {
+            min1 = arr[i];
+        }
+        
+    }
+    return min1;
+}
+
+int findNextMinValue(int arr[], size_t len, int min1) {
+    if (len < 2) 
+    {
+        return -1;
+    }
+
+    int min2 = -1;
+    bool found = false;
+
+    for (size_t i = 0; i < len; i++)
+    {
+        if (arr[i] != min1 && (arr[i]<min2 || !found))
+        {
+            min2 = arr[i];
+            found = true;
+        }
+    }
+    return min2;
+}
+
+int findMaxValue (int arr[], size_t len){
+    int max1 = arr[0];
+    if (len < 1)
+    {
+        return -1;
+    }
+
+    for (size_t i = 1; i < len; i++)
+    {
+        if (arr[i] > max1)
+        {
+            max1 = arr[i];
+        }
+    }
+    return max1;
+}
+
+int findNextMaxValue(int arr[], size_t len, int max1) {
+    if (len < 2)
+    {
+        return -1;
+    }
+
+    int max2 = -1;
+    bool found = false;
+    for (size_t i = 0; i < len; i++)
+    {
+        if (arr[i] != max1 && (!found || max2 < arr[i]))
+        {
+            max2 = arr[i];
+            found = true;
+        }
+    }
+    return max2;
+}
+
+int main()
+{
+    constexpr int n = 5;
+    int arr[n];
+    for (size_t i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    int minValue = findMinValue(arr, n);
+    int maxValue = findMaxValue(arr, n);
+
+    cout << "MinValue = " << minValue << endl
+         << "MaxValue = " << maxValue << endl
+         << "SecondMin = " << findNextMinValue(arr, n, minValue) << endl
+         << "SecondMax = " << findNextMaxValue(arr, n, maxValue) << endl;
+
+    return 0;
+}
 ```
 
