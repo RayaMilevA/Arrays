@@ -200,4 +200,58 @@ int main()
     return 0;
 }
 ```
+### Task - Duplicates
+Въведете масив от n елемента и цяло положително число.Да се изведе на конзолата колко пъти го има това число в масива.Също да се изведе на кои позиции сме го срещнали при обхождане.
+```
+#include <iostream>
+#include <cmath>
+using namespace std;
+/**/
 
+int timesNumSeen(int arr[], int len, int n) {
+    int counter = 0;
+    for (size_t i = 0; i < len; i++)
+    {
+        if (arr[i] == n)
+        {
+            counter++;
+        }
+    }
+    return counter;
+}
+
+void positionsNumIsSeen(int arr[], int len, int n) {
+    bool found = false;
+    cout << "Positions are: ";
+    for (size_t i = 0; i < len; i++)
+    {
+        if (arr[i] == n)
+        {
+            found = true;
+            cout << i << " ";
+        }
+    }
+    if (!found)
+    {
+        cout << "Number not seen";
+    }
+}
+
+int main()
+{
+    constexpr int SIZE = 5;
+    int arr[SIZE]; 
+    for (size_t i = 0; i < SIZE; i++)
+    {
+        cin >> arr[i];
+    }
+    int n;
+    cin >> n;
+
+    cout << timesNumSeen(arr, SIZE, n) << endl;
+    positionsNumIsSeen(arr, SIZE, n);
+
+    return 0;
+}
+
+```
