@@ -255,3 +255,33 @@ int main()
 }
 
 ```
+
+### Task - Linear Search
+
+```
+#include <iostream>
+using namespace std;
+
+int MyLinearSearch (const int arr[], int len, int n) {
+	for (size_t i = 0; i < len; i++)
+	{
+		if (arr[i] == n)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+int main()
+{
+	unsigned int n;
+	cin >> n;
+	constexpr int arrSIZE = 5;
+	int arr[arrSIZE] = { 1,2,3,4,5 };
+	bool isFound = MyLinearSearch(arr, arrSIZE, n) >= 0;
+	cout << isFound;
+
+	return 0;
+}
+```
