@@ -200,6 +200,109 @@ int main()
     return 0;
 }
 ```
+Втори начин за решаване на задачата:
+```
+#include <iostream>
+
+void arrayInput(int arr[], const int SIZE) {
+	for (size_t i = 0; i < SIZE; i++)
+	{
+		std::cin >> arr[i];
+	}
+}
+
+void arrayReverse(int arr[], int start, int end) {
+	while (start < end)
+	{
+		int temp = 0;
+		temp = arr[start];
+		arr[start] = arr[end];
+		arr[end] = temp;
+
+		start++;
+		end--;
+	}	
+}
+
+int arrayMin(int arr[], const int SIZE) {
+	int min = arr[0];
+	for (size_t i = 0; i < SIZE; i++)
+	{
+		if (min >= arr[i])
+		{
+			min = arr[i];
+		}
+	}
+	return min;
+}
+
+int arraySecondMin(int arr[], const int SIZE) {
+
+    int min = arrayMin(arr, SIZE);
+	int secondMin = arr[0] != min ? arr[0] : arr[1];
+
+	for (size_t i = 0; i < SIZE; i++)
+	{
+		if (arr[i] < secondMin && arr[i] != min)
+		{
+			secondMin = arr[i];
+		}
+	}
+	
+	return secondMin;
+}
+
+int arrayMax(int arr[], const int SIZE) {
+	int max = arr[0];
+
+	for (size_t i = 0; i < SIZE; i++)
+	{
+		if (arr[i] >= max)
+		{
+			max = arr[i];
+		}
+	}
+	return max;
+}
+
+int arraySecondMax(int arr[], const int SIZE) {
+	int max = arrayMax(arr, SIZE);
+	int secondMax = arr[0] != max ? arr[0] : arr[1];
+
+	for (size_t i = 0; i < SIZE; i++)
+	{
+		if (arr[i] > secondMax && arr[i] != max)
+		{
+			secondMax = arr[i];
+		}
+	}
+	return secondMax;
+}
+
+void arrayOutput(int arr[], const int SIZE) {
+	for (size_t i = 0; i < SIZE; i++)
+	{
+		std::cout << "arr[" << i << "]= " << arr[i] << std::endl;
+	}
+}
+
+int main() {
+	
+	const int SIZE = 5;
+	int arr[SIZE];
+	
+	arrayInput(arr, SIZE);
+	//arrayReverse(arr, 0, SIZE - 1);
+	std::cout << arrayMin(arr, SIZE) << std::endl;
+	std::cout << arraySecondMin(arr, SIZE) << std::endl;
+	std::cout << arrayMax(arr, SIZE) << std::endl;
+	std::cout << arraySecondMax(arr, SIZE) << std::endl;
+	//arrayOutput(arr, SIZE);
+
+	return 0;
+}
+
+```
 ### Task - Duplicates
 Въведете масив от n елемента и цяло положително число.Да се изведе на конзолата колко пъти го има това число в масива.Също да се изведе на кои позиции сме го срещнали при обхождане.
 ```
