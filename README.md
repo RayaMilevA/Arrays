@@ -388,3 +388,47 @@ int main()
 	return 0;
 }
 ```
+
+### Task - Mirror Array
+Въведете масив от n елемента и цяло положително число. Да се провери дали един масив е огледален спрямо средата си.
+
+```
+#include <iostream>
+
+void arrayInput(int arr[], const int SIZE) {
+	for (size_t i = 0; i < SIZE; i++)
+	{
+		std::cin >> arr[i];
+	}
+}
+
+
+
+bool isMirror(int arr[], const int SIZE) {
+	for (size_t i = 0; i < SIZE / 2; i++)
+	{
+		if (arr[i] != arr[SIZE - i - 1])
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+int main() {
+	
+	const int SIZE = 5;
+	int arr[SIZE];
+	arrayInput(arr, SIZE);
+
+	if (isMirror(arr, SIZE))
+	{
+		std::cout << "YES";
+	}
+	else
+	{
+		std::cout << "NO";
+	}
+	return 0;
+}
+```
