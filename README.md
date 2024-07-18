@@ -54,6 +54,44 @@ int main()
 }
 */
 ```
+Another way of solving the task
+```
+#include <iostream>
+using namespace std;
+void print(int arr[], size_t SIZE) {
+	cout << "[";
+	for (size_t i = 0; i < SIZE; i++)
+	{
+		cout << arr[i];
+		if (i < SIZE - 1)
+		{
+			cout << ",";
+		}
+	}
+	cout << "]";
+}
+
+void average(int arr[], size_t SIZE) {
+	double sum = 0;
+	for (size_t i = 0; i < SIZE; i++)
+	{
+		sum += arr[i];
+	}
+	sum /= SIZE;
+	cout << sum;
+}
+int main() {
+	const int SIZE = 4;
+	int arr[SIZE];
+	for (size_t i = 0; i < SIZE; i++)
+	{
+		cin >> arr[i];
+	}
+
+	print(arr, SIZE);
+	average(arr, SIZE);
+}
+```
 
 ### Task - Reverse
 Въведете масив от n елемента, отпечатайте елементите му наобратно!
